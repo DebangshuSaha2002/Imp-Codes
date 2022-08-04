@@ -4,51 +4,62 @@
  
 int main()
 {
-  int m, n, p, q, c, d, k, sum = 0;
+  int m, n1, n2, k, c, d, j, sum = 0;
   int a[10][10], b[10][10], mul[10][10];
  
   printf("Enter number of rows and columns of first matrix\n");
-  scanf("%d%d", &m, &n);
+  scanf("%d%d", &m, &n1);
   printf("Enter elements of first matrix\n");
- 
   for (c = 0; c < m; c++)
-    for (d = 0; d < n; d++)
-      scanf("%d", &a[c][d]);
+    {
+      for (d = 0; d < n1; d++)
+      {
+        scanf("%d", &a[c][d]);
+      }
+    }
+
  
   printf("Enter number of rows and columns of second matrix\n");
-  scanf("%d%d", &p, &q);
+  scanf("%d%d", &n2, &k);
  
-  if (n != p)
-    printf("The matrices can't be multiplied with each other.\n");
+  if (n1 != n2)
+  printf("The matrices can't be multiplied with each other.\n");
   else
   {
     printf("Enter elements of second matrix\n");
  
-    for (c = 0; c < p; c++)
-      for (d = 0; d < q; d++)
+    for (c = 0; c < n2; c++)
+    {
+      for (d = 0; d < k; d++)
+      {
         scanf("%d", &b[c][d]);
+      }
+    }
  // logic for multiplication
-    for (c = 0; c < m; c++) {
-      for (d = 0; d < q; d++) {
-        for (k = 0; k < p; k++) {
-          sum = sum + a[c][k]*b[k][d];
+    for (c = 0; c < m; c++) 
+    {
+      for (d = 0; d < k; d++) 
+      {
+        for (j = 0; j < n2; j++) 
+        {
+          sum = sum + a[c][j]*b[j][d];
         }
  
         mul[c][d] = sum;
         sum = 0;
       }
     }
-
  
     printf("Product of the matrices:\n");
  
     for (c = 0; c < m; c++) {
-      for (d = 0; d < q; d++)
+      for (d = 0; d < k; d++)
+      {
         printf("%d\t", mul[c][d]);
+      }
  
       printf("\n");
     }
   }
- 
   return 0;
 }
