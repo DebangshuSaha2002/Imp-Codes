@@ -1,4 +1,6 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
 struct student 
 {
@@ -6,7 +8,7 @@ struct student
     int rollno;
     int marks[5];
     int total;
-    char grade;
+    char grade[20];
 };
 int main()
 {
@@ -28,21 +30,18 @@ int main()
 		s[i].total = s[i].marks[0]+s[i].marks[1]+s[i].marks[2]+s[i].marks[3]+s[i].marks[4];
 		printf("Total Marks of %d student = %d\n",(i+1), s[i].total);
     }
-    // for(i=0;i<n;i++)
-    // {
-    //     if(s[i].total>=90 && s[i].total<=100){
-    //         s[i].grade="A";
-    //     }
-    //     else if (s[i].total>=80 && s[i].total<90){
-    //         s[i].grade="B";
-    //     }
-    //     else if (s[i].total>=70 && s[i].total<80){
-    //         s[i].grade="C";
-    //     }
-    //     else{
-    //         s[i].grade="F";
-    //     }
-    // }
+    for(i=0;i<n;i++)
+    {
+        if(s[i].total>=400 && s[i].total<=500){
+            strcpy(s[i].grade,"A");
+        }
+        else if (s[i].total>=300 && s[i].total<400){
+            strcpy(s[i].grade,"B");
+        }
+        else{
+            strcpy(s[i].grade,"F");
+        }
+    }
     //Sorting
     for (i=0; i<n-1; i++)
     {    
@@ -62,7 +61,7 @@ int main()
         printf("Name of the student is %s\n",s[i].name);
         printf("Roll No of the student is %d\n",s[i].rollno);
         printf("Total marks of the student is %d\n",s[i].total);
-        // printf("The grade of the student is %c\n",s[i].grade);
+        printf("The grade of the student is %s\n",s[i].grade);
     }
     return 0;
 }
