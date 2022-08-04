@@ -1,26 +1,41 @@
-#include<stdio.h>
-
-struct rail
-{
-    char name[10];
-    char time[10];
+#include <stdio.h>
+struct Timer{
+    int hour;
+    int min;
 };
-
-int main()
-{
-    struct rail r[5];
-    int i;
-    for(i=0;i<5;i++)
-    {
-        printf("Enter the name of train: \n");
-        scanf("%s",r[i].name);
-        printf("Enter the arrival time of train: \n");
-        scanf("%s",r[i].time);
+struct Railway{
+    char name[20];
+    char time[10];
+    struct Timer timer;
+};
+int main(){
+    struct Railway train[5];
+    for(int i = 0;i<5;i++){
+        printf("Enter the Details of Train %d\n",i+1);
+        printf("Name : ");
+        gets(train[i].name);
+        printf("Time in (hh:mm AM/PM) format : ");
+        gets(train[i].time);
+        printf("\n");
     }
-    //Printing trian name with time
-    for(i=0;i<5;i++)
-    {
-        printf("%s\t%s\n",r[i].name,r[i].time);
+    for(int i = 0;i<5;i++){
+        if(train[i].time[6] =='A')
+        {
+            train[i].timer.hour = ((train[i].time[0]-'0')*10)+(train[i].time[1]-'0');
+            train[i].timer.min = ((train[i].time[3]-'0')*10)+(train[i].time[4]-'0');
+        }
+        else if((train[i].time[6] =='P') && (train[i].time[0] == '1') && (train[i].time[1] == '2')){
+            train[i].timer.hour = ((train[i].time[0]-'0')*10)+(train[i].time[1]-'0');
+            train[i].timer.min = ((train[i].time[3]-'0')*10)+(train[i].time[4]-'0');
+        }
+        else{
+            train[i].timer.hour = ((train[i].time[0]-'0')*10)+(train[i].time[1]-'0') +12;
+            train[i].timer.min = ((train[i].time[3]-'0')*10)+(train[i].time[4]-'0');
+        }
+    }
+    printf("\nThe Details of the Trains :---\n");
+    for(int i = 0;i<5;i++){
+        printf("Name : %s --- Time : %d:%d\n",train[i].name,train[i].timer.hour,train[i].timer.min);
     }
     return 0;
 }
