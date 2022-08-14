@@ -7,16 +7,16 @@ int main()
         LA[i]=0;
         LB[i]=0;
     }
-    printf("\nEnter the order of first Polynomial");
+    printf("\nEnter the order of first Polynomial : ");
     scanf("%d",&m);
-    printf("\nEnter the Co-efficient");
+    printf("\nEnter the Co-efficients:\n");
     for(i=m;i>=0;i--)
     {   
         scanf("%d",&LA[i]);
     }
-    printf("\nEnter the order of Second Polynomail");
+    printf("\nEnter the order of Second Polynomail : ");
     scanf("%d",&n);
-    printf("\nEnter the Co-efficient");
+    printf("\nEnter the Co-efficients:\n");
     for(i=n;i>=0;i--)
     {
         scanf("%d",&LB[i]);
@@ -36,10 +36,10 @@ int main()
             LSum[i]=LA[i]+LB[i];
         }
     }
-    printf("\nThe resultant polynomial after addition is:A:=");
+    printf("\nThe resultant polynomial after addition is: ");
     for(i=cnt-1;i>0;i--)
     {
-        printf("%dX^%d+",LSum[i],i);
+        printf("%dX^%d + ",LSum[i],i);
     }
     printf("%d",LSum[i]);
     return 0;
