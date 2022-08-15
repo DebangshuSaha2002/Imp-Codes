@@ -4,7 +4,6 @@ struct poly
     int degree;
     int coeff;
 };
-
 int main()
 {
     struct poly poly1[10],poly2[10],product[100];
