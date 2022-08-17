@@ -23,15 +23,15 @@ int main()
             for(int j=1;j<=n;j++)
             {
                 if(a[i]<=a[j])
-            {
-                temp=a[i];
-                a[i]=a[j];
-                a[j]=temp;
+                {
+                    temp=a[i];
+                    a[i]=a[j];
+                    a[j]=temp;
+                }
             }
         }
-    }
-    printf("The second largest element in the array is %d\n",a[n-1]);
-    printf("The second smallest element in the array is %d\n",a[2]);
+        printf("The second largest element in the array is %d\n",a[n-1]);
+        printf("The second smallest element in the array is %d\n",a[2]);
     }
     return 0;
 }
