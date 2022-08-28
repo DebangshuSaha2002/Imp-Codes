@@ -4,31 +4,27 @@
  
 int main()
 {
-  int m, n1, n2, k, c, d, j, sum = 0;
+  int m, n, k, c, d, j, sum = 0;
   int a[10][10], b[10][10], mul[10][10];
  
   printf("Enter number of rows and columns of first matrix\n");
-  scanf("%d%d", &m, &n1);
+  scanf("%d%d", &m, &n);
   printf("Enter elements of first matrix\n");
   for (c = 0; c < m; c++)
     {
-      for (d = 0; d < n1; d++)
+      for (d = 0; d < n; d++)
       {
         scanf("%d", &a[c][d]);
       }
     }
 
  
-  printf("Enter number of rows and columns of second matrix\n");
-  scanf("%d%d", &n2, &k);
+  printf("Enter number of columns of second matrix\n");
+  scanf("%d",&k);
+
+  printf("Enter elements of second matrix\n");
  
-  if (n1 != n2)
-  printf("The matrices can't be multiplied with each other.\n");
-  else
-  {
-    printf("Enter elements of second matrix\n");
- 
-    for (c = 0; c < n2; c++)
+    for (c = 0; c < n; c++)
     {
       for (d = 0; d < k; d++)
       {
@@ -40,7 +36,7 @@ int main()
     {
       for (d = 0; d < k; d++) 
       {
-        for (j = 0; j < n2; j++) 
+        for (j = 0; j < n; j++) 
         {
           sum = sum + a[c][j]*b[j][d];
         }
@@ -60,6 +56,5 @@ int main()
  
       printf("\n");
     }
-  }
   return 0;
 }
