@@ -17,6 +17,7 @@ int main()
 {
     int n;
     printf("Enter how many data \n");
+    scanf("%d",&n);
     int i,j;
     struct employee e[n],temp,temp1,temp2,temp3;
     printf("Date of Birth\n");
